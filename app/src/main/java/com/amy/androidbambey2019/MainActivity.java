@@ -1,5 +1,6 @@
 package com.amy.androidbambey2019;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -8,11 +9,15 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    public Button bouton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +30,23 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Log.i("MainActivity", "Le bouton flotant est cliqué");
+                Snackbar.make(view, "Le bouton flottant est cliqué", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+            }
+        });
+
+
+        bouton = (Button) findViewById(R.id.button);
+        bouton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("MainActivity", "Merci d'avoir cliqué");
+                Toast.makeText(getApplicationContext(), "Le bouton est cliqué", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+                Log.i("MainActivity", " " + intent);
+                startActivity(intent);
             }
         });
     }
@@ -47,9 +67,20 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Log.i("MainActivity", "Bouton de paramettrage");
+            Toast.makeText(getApplicationContext(), "Le bouton de paraméttrage est cliqué", Toast.LENGTH_LONG).show();
         }
+
+        else  if (id == R.id.action_help){
+            Log.i("MainActivity", "Bouton d'aide");
+            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+            startActivity(intent);
+        }
+
+        //return true;
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
