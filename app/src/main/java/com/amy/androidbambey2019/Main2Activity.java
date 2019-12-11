@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -11,12 +12,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
+import static com.amy.androidbambey2019.R.id.btnWeb;
+
 public class Main2Activity extends AppCompatActivity {
 
-    public Button btnCall, btnSms;
+    public Button btnCall, btnSms, btnWeb;
+    public WebView webView;
 
 
     @Override
@@ -59,6 +66,14 @@ public class Main2Activity extends AppCompatActivity {
         });
 
 
+        btnWeb = findViewById(R.id.btnWeb);
+        btnWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
 
 
     }

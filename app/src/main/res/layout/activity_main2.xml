@@ -49,7 +49,8 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
+        android:layout_marginRight="30dp"
+        android:backgroundTint="#1783C4"/>
 
     <Button
         android:id="@+id/btnApp"
